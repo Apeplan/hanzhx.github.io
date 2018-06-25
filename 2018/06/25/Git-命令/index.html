@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="配置（别名、log）alias.co=checkout alias.br=branch alias.ci=commit alias.st=status alias.l=log --oneline --decorate -10 alias.lg=log --color --graph --pretty=format:&amp;apos;%Cred%h%Creset -%C(yellow)%d%Creset">
+<meta name="description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 命令">
 <meta property="og:url" content="http://apeplan.com/2018/06/25/Git-命令/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blog">
-<meta property="og:description" content="配置（别名、log）alias.co=checkout alias.br=branch alias.ci=commit alias.st=status alias.l=log --oneline --decorate -10 alias.lg=log --color --graph --pretty=format:&amp;apos;%Cred%h%Creset -%C(yellow)%d%Creset">
+<meta property="og:description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-25T07:13:00.549Z">
+<meta property="og:updated_time" content="2018-06-25T09:12:16.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 命令">
-<meta name="twitter:description" content="配置（别名、log）alias.co=checkout alias.br=branch alias.ci=commit alias.st=status alias.l=log --oneline --decorate -10 alias.lg=log --color --graph --pretty=format:&amp;apos;%Cred%h%Creset -%C(yellow)%d%Creset">
+<meta name="twitter:description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
 
 
 
@@ -339,12 +339,13 @@
       
 
       
-        <h4 id="配置（别名、log）"><a href="#配置（别名、log）" class="headerlink" title="配置（别名、log）"></a>配置（别名、log）</h4><pre><code>alias.co=checkout
-alias.br=branch
-alias.ci=commit
-alias.st=status
-alias.l=log --oneline --decorate -10
-alias.lg=log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit --
+        <h4 id="配置（别名、log）"><a href="#配置（别名、log）" class="headerlink" title="配置（别名、log）"></a>配置（别名、log）</h4><pre><code>git config --list 查看所有配置
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status -s
+git config --global alias.l &quot;log --oneline --decorate -12&quot;
+git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit --&quot;
 </code></pre><h4 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h4><pre><code>创建分支：
     git branch &quot;分支名称&quot;
 
@@ -362,6 +363,108 @@ alias.lg=log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%
 
 删除远端分支：
     git push origin :分支名
+
+创建一个名为 v1.0_tag 的Tag:
+    git tag v1.0_tag
+
+查看Tag:
+    git tag
+
+删除 v1.0_tag Tag:
+    git tag -d v1.0_tag
+
+创建一个 描述为“我是一个tag” 的tag:
+    git tag -a v1.0_tag -m “我是一个tag”
+
+查看版本信息:
+    git show v1.0_tag
+
+将指定标签提交到服务器:
+    git push origin v1.0_tag
+
+提交所有标签到服务器:
+    git push -tags
+
+把当前文件放入缓冲区(索引)：
+    git add files
+
+把所有修改过的文件放入缓冲区(索引)：
+    git add *
+
+从缓冲区(索引)删除files：
+    git rm files
+
+给缓冲区(索引)生成快照并提交：
+    git commit
+
+用来撤销最后一次git add files：
+    git reset -- files
+
+撤销所有缓冲区(索引)文件：
+    git reset
+
+把文件从缓冲区(索引)复制到工作目录，用来丢弃本地修改：
+    git checkout -- files
+
+相当于运行git add *，再运行git commit：
+    git commit -a
+
+相当于运行git add files，再运行git commit：
+    git commit files
+
+回滚到最后一次提交：
+    git checkout HEAD -- files
+
+对比da985与b325c两次提交处的差异：
+    git diff da985 b325c
+
+对比maint分支与当前工作目录两处的差异：
+    git diff maint
+
+对比缓冲区与当前工作目录两处的差异：
+    git diff
+
+对比HEAD与当前工作目录两处的差异：
+    git diff HEAD
+
+对比HEAD与缓冲区两处的差异：
+    git diff --cached
+
+用当前提交的父节点(HEAD~)进行一次新提交(变成新的HEAD)，旧的提交(原HEAD)会被取消：
+    git commit --amend
+
+把节点HEAD~(当前提交节点的父节点)的文件foo.c复制到工作目录并且生成索引(缓冲区)，注意当前分支没有变化：
+    git checkout HEAD~ foo.c
+
+切换到maint分支，同时把缓冲区(索引)和工作目录切换到那个分支对应的状态：
+    git checkout maint
+
+切换到一个匿名分支(detached HEAD)，master~3: master分支所指节点的曾祖父节点：
+    git checkout master~3
+
+创建一个新的分支：
+    git checkout -b name
+
+将当前分支指向另一个位置(当前分支所指节点的曾祖父节点)，另有如下选项:
+    git reset HEAD~3
+    # --hard: 更新分支位置的同时，更新缓冲区(索引)和工作目录
+    # --soft: 不更新缓冲区(索引)
+    # 如果没有给出提交点的版本号，那么默认用HEAD，即: git reset代表着git reset HEAD
+
+如果给了文件名(或者-p选项)，那么工作效果和带文件名的checkout差不多，不同的是: 这里不会更新工作目录：
+    git reset -- files
+
+&quot;复制&quot;一个节点2c33a，并将其在当前分支做一次完全一样的新提交：
+    git cherry-pick 2c33a
+
+在master分支上重演当前分支(HEAD指向)的历史，提交历史是线性的；本质上，这是线性化的自动的cherry-pick：
+    git rebase master
+
+使用--onto选项限制回滚范围；在master分支上重演当前分支从169a6以来的最近几个提交(不包含169a6)：
+    git rebase --onto master 169a6
+
+更方便地完成一些复杂操组，比如丢弃、重排、修改、合并提交：
+    git rebase --interactive
 </code></pre>
       
     </div>
