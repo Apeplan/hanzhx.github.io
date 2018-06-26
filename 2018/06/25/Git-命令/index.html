@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Simon&#39;s Blog">
 <meta property="og:description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-25T09:29:19.025Z">
+<meta property="og:updated_time" content="2018-06-26T05:41:37.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 命令">
 <meta name="twitter:description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
@@ -465,15 +465,24 @@ git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cr
 
 更方便地完成一些复杂操组，比如丢弃、重排、修改、合并提交：
     git rebase --interactive
-</code></pre><h4 id="Git-与-Subversion-命令对比"><a href="#Git-与-Subversion-命令对比" class="headerlink" title="Git 与 Subversion 命令对比"></a>Git 与 Subversion 命令对比</h4><pre><code>|       | Git | Subversion |
-| 检出 | git clone | svn checkout |
-
-| 水果        | 价格    |  数量  |
-| --------   | -----:   | :----: |
-| 香蕉        | $1      |   5    |
-| 苹果        | $1      |   6    |
-| 草莓        | $1      |   7    |
-</code></pre><p>作者：Gaolex<br>链接：<a href="https://www.jianshu.com/p/abaff828100d" target="_blank" rel="noopener">https://www.jianshu.com/p/abaff828100d</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+</code></pre><h4 id="Git-与-Subversion-命令对比"><a href="#Git-与-Subversion-命令对比" class="headerlink" title="Git 与 Subversion 命令对比"></a>Git 与 Subversion 命令对比</h4><ol>
+<li>复制数据库       git clone                            svn checkout</li>
+<li>提交                  git commit                         svn commit</li>
+<li>确认状态           git status                           svn status</li>
+<li>确认差异           git diff                                svn diff</li>
+<li>确认记录           git log                                svn log</li>
+<li>添加                  git add                               svn add</li>
+<li>移动                  git mv                                svn mv</li>
+<li>删除                  git rm                                 svn rm</li>
+<li>取消修改           git checkout / git reset      svn revert (※1)</li>
+<li>创建分支           git branch                          svn copy (※2)</li>
+<li>切换分支           git checkout                       svn switch</li>
+<li>合并                  git merge                           svn merge</li>
+<li>创建标签           git tag                                svn copy (※2)</li>
+<li>更新                  git pull / git fetch               svn update</li>
+<li>反映到远端       git push                             svn commit (※3)</li>
+<li>忽略档案目录   .gitignore                           .svnignore</li>
+</ol>
 
       
     </div>
