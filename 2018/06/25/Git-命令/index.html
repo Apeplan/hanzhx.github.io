@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Simon&#39;s Blog">
 <meta property="og:description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-26T05:41:37.130Z">
+<meta property="og:updated_time" content="2018-06-26T05:47:38.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 命令">
 <meta name="twitter:description" content="配置（别名、log）git config --list 查看所有配置 git config --global alias.co checkout git config --global alias.br branch git config --global alias.ci commit git config --global alias.st status -s git config --glo">
@@ -483,6 +483,11 @@ git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cr
 <li>反映到远端       git push                             svn commit (※3)</li>
 <li>忽略档案目录   .gitignore                           .svnignore</li>
 </ol>
+<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><ul>
+<li>SVN的revert是用来取消修改，但Git的revert是用来消除提交。所以即使是同样的命令，在SVN和Git里的含义是不同的。</li>
+<li>SVN的分支与标签在构造上是相同的，但在Git其构造明显是不一样的。</li>
+<li>SVN没有本地数据库/远程数据库的概念，所以提交会马上反映到远程里。但Git的本地数据库和远程数据库的反映方法是不一样的。</li>
+</ul>
 
       
     </div>
@@ -663,7 +668,7 @@ git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cr
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置（别名、log）"><span class="nav-number">1.</span> <span class="nav-text">配置（别名、log）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令说明"><span class="nav-number">2.</span> <span class="nav-text">命令说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-与-Subversion-命令对比"><span class="nav-number">3.</span> <span class="nav-text">Git 与 Subversion 命令对比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置（别名、log）"><span class="nav-number">1.</span> <span class="nav-text">配置（别名、log）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令说明"><span class="nav-number">2.</span> <span class="nav-text">命令说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-与-Subversion-命令对比"><span class="nav-number">3.</span> <span class="nav-text">Git 与 Subversion 命令对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备注"><span class="nav-number">4.</span> <span class="nav-text">备注</span></a></li></ol></div>
             
 
           </div>
